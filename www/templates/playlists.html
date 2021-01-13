@@ -1,0 +1,57 @@
+<ion-view view-title="Sisapp">
+  <ion-content>
+
+  		<!---Bilgi Kartı-->
+		<div class="card">
+		  <div class="item item-text-wrap" style="font-size: 18px">
+		    Lütfen aşağıdaki alana değerlerinizi giriniz.
+		  </div>
+		</div>
+
+
+
+		
+		<div class="list">
+
+		<!----Boy---->
+		  <div class=" range range-positive">
+		    Boy
+		    <input type="range" ng-model="boy" min="0" max="200" ng-change="hesapla(kilo,boy)">
+		    {{boy}} cm
+		  </div>
+
+	    <!----Kilo---->
+		  <div class=" range range-positive">
+		    Kilo
+		    <input type="range" ng-model="kilo" min="0" max="200" ng-change="hesapla(kilo,boy)">
+		    {{kilo}} kg
+		  </div>
+		  
+		</div>
+
+
+		<!----Sonuç Kartı--->
+		<div class="card">
+		  <div class="item item-text-wrap">
+		   <p style="font-size: 22px; color:#79cdcd">Vücut Kitle Indeksiniz: {{sonuc | number:2}} kg/m2 </p>
+
+		   <h3 style="color:#79cdcd">  {{(sonuc)<18.49 ? "İdeal Kilonun Altında": (sonuc)>=18.49 && (sonuc)<24.99 ? "İdeal Kilo": (sonuc)>=24.99 && (sonuc)<=29.99 ? "İdeal Kilonun Üzerinde" : (sonuc)>30 ? "İdeal Kilonun Çok Üzerinde": "" }}         </h3>
+		  
+		  </div>
+		</div>
+
+
+
+		<!---Resim Kartı-->
+		<div class="list card">
+		  <div class="item item-image">
+		    
+		  	<img src="..\img/{{(sonuc)<=18.49 ? 'zayif.png' : (sonuc)<=25 ? 'normal.png' : 'sisman.png'}}">
+
+		  </div>
+		</div>
+
+
+
+  </ion-content>
+</ion-view>
